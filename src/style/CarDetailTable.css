@@ -1,0 +1,52 @@
+#cont-marcas {
+    float: left;
+    width: 100%;
+    height: auto;
+    padding: 2% 0;
+    background-image: url('../assets/fondo16.png');
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    margin-bottom: 3%;
+    padding-left: 100px;
+}
+
+.wrapper {
+    width: 100%;
+    margin: 0;
+}
+
+#customers {
+    border-collapse: collapse;
+    width: 80%;
+    margin: auto;
+}
+
+#customers td,
+#customers th {
+    padding: 8px;
+    font-size: 1.5rem;
+    padding-left: 20px;
+}
+
+#customers tr:nth-child(odd) {
+    background-color: #ffffffe0;
+}
+
+#customers tr:nth-child(even) {
+    background-color: #f2f2f2e0;
+}
+
+#customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: rgb(209, 48, 20);
+    color: white;
+}
+
+#customers td {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+}
