@@ -1,0 +1,34 @@
+    .box-container-footer {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+        gap: 1.5rem;
+        padding-left: 5%;
+        padding-right: 5%;
+        padding-top: 15px;
+        margin-bottom: 5px;
+    }
+    
+    .box-container-footer .box-footer h3 {
+        padding: .5rem 0;
+        font-size: 2.5rem;
+        color: var(--black);
+    }
+    
+    .box-container-footer .box-footer a {
+        display: block;
+        padding: .5rem 0;
+        font-size: 1.5rem;
+        color: var(--light-color);
+    }
+    
+    .box-container-footer .box-footer .href {
+        display: block;
+        padding: .5rem 0;
+        font-size: 1.5rem;
+        color: var(--light-color);
+    }
+    
+    .box-container-footer .box-footer .href:hover {
+        color: var(--red);
+        text-decoration: underline;
+    }

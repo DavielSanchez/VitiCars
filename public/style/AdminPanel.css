@@ -1,0 +1,9 @@
+.titulo_page {
+    margin-top: 80px;
+    justify-content: center;
+}
+
+.titulo_page hr {
+    color: var(--red);
+    width: 30%;
+}

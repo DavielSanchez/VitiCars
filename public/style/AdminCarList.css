@@ -1,0 +1,21 @@
+    .addCar {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .btnAdd {
+        margin-top: 1rem;
+        display: inline-block;
+        font-size: 1.7rem;
+        color: #fff;
+        background: var(--black);
+        border-radius: .5rem;
+        cursor: pointer;
+        padding: .8rem 3rem;
+    }
+    
+    .btnAdd:hover {
+        background: var(--red);
+        letter-spacing: .1rem;
+        color: #fff;
+    }

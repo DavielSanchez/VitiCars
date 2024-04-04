@@ -1,0 +1,166 @@
+import { useRef, useEffect, useState } from "react";
+import '../style/Nav.css'
+import { Auth } from '../../FireBaseConfig/Authetication';
+import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
+
+import NavLoggedIn from "./NavLoggedIn";
+import NavNotLoggedIn from "./NavNotLoggedIn";
+
+import { FirebaseAuth, userExist } from '../../FireBaseConfig/Firebase';
+import { GoogleAuthProvider, onAuthStateChanged } from 'firebase/auth';
+
+function Nav() {
+  // if(Auth()){
+  //   return <NavLoggedIn/>
+  // }else{
+  //   return  <NavNotLoggedIn/>
+  // }
+
+  const [user, setUser] = useState();
+
+  useEffect(() => {
+    onAuthStateChanged(FirebaseAuth, userStateChanged)
+  },[])
+
+  const userStateChanged = async (user) =>{
+    if (user){
+      setUser('logged')
+    } else{
+      setUser('not logged')
+    }
+  }
+
+  if(user == 'logged'){
+       return <NavLoggedIn/>
+     }else{
+      //  return  <NavNotLoggedIn/>
+      return <NavLoggedIn/>
+     }
+
+}
+
+export default Nav
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+signOut(FirebaseAuth).then(() => {
+    // Sign-out successful.
+}).catch((error) => {
+
+});
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+import { useRef } from "react";
+import '../style/Nav.css'
+function Nav() {
+  const sideBar = useRef();
+  const showSidebar = ()=>{
+    sideBar.current.style.display = "flex";
+  }
+  const hideSidebar = ()=>{
+    sideBar.current.style.display = "none";
+  }
+
+  return (
+    <header>
+
+    <a href="/" className="logo">
+        <img src="../../public/Viticars.png" alt="" width="200px" height="58px"/>
+    </a>
+
+
+    <nav className="navbar hideOnMoblie">
+        <a className={({isActive})=> (isActive ? 'Active' : null)} href="/">Inicio</a>
+        <a className={({isActive})=> (isActive ? 'Active' : null)} href="/carlist">Vehículos y +</a>
+        <a className={({isActive})=> (isActive ? 'Active' : null)} href="/admin">Administración</a>
+        <a className={({isActive})=> (isActive ? 'Active' : null)} href="#vende">Vende</a>
+        <a className={({isActive})=> (isActive ? 'Active' : null)} href="#contact">Contáctanos</a>
+    </nav> 
+    
+    <a href="#" className="menuButton" onClick={showSidebar} >
+      <svg xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 -960 960 960" width="30"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
+      </a>
+
+
+    <nav className="sidebar showSideBar" id='sidebar' ref={sideBar}>
+        <a href="#" className="closeButton" onClick={hideSidebar}><svg xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 -960 960 960" width="30"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a>
+        <a className={({isActive})=> (isActive ? 'Active' : null)} href="/">Inicio</a>
+        <a className={({isActive})=> (isActive ? 'Active' : null)} href="/carlist">Vehículos y +</a>
+        <a className={({isActive})=> (isActive ? 'Active' : null)} href="/admin">Administración</a>
+        <a className={({isActive})=> (isActive ? 'Active' : null)} href="#vende">Vende</a>
+        <a className={({isActive})=> (isActive ? 'Active' : null)} href="#footer">Contáctanos</a>
+    </nav> 
+
+    
+</header>
+  )
+}
+
+export default Nav
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+<div className="mb-3">
+        <label class="custum-file-upload" for="file">
+<div class="icon">
+<svg xmlns="http://www.w3.org/2000/svg" fill="" viewBox="0 0 24 24"><g stroke-width="0" id="SVGRepo_bgCarrier"></g><g stroke-linejoin="round" stroke-linecap="round" id="SVGRepo_tracerCarrier"></g><g id="SVGRepo_iconCarrier"> <path fill="" d="M10 1C9.73478 1 9.48043 1.10536 9.29289 1.29289L3.29289 7.29289C3.10536 7.48043 3 7.73478 3 8V20C3 21.6569 4.34315 23 6 23H7C7.55228 23 8 22.5523 8 22C8 21.4477 7.55228 21 7 21H6C5.44772 21 5 20.5523 5 20V9H10C10.5523 9 11 8.55228 11 8V3H18C18.5523 3 19 3.44772 19 4V9C19 9.55228 19.4477 10 20 10C20.5523 10 21 9.55228 21 9V4C21 2.34315 19.6569 1 18 1H10ZM9 7H6.41421L9 4.41421V7ZM14 15.5C14 14.1193 15.1193 13 16.5 13C17.8807 13 19 14.1193 19 15.5V16V17H20C21.1046 17 22 17.8954 22 19C22 20.1046 21.1046 21 20 21H13C11.8954 21 11 20.1046 11 19C11 17.8954 11.8954 17 13 17H14V16V15.5ZM16.5 11C14.142 11 12.2076 12.8136 12.0156 15.122C10.2825 15.5606 9 17.1305 9 19C9 21.2091 10.7909 23 13 23H20C22.2091 23 24 21.2091 24 19C24 17.1305 22.7175 15.5606 20.9844 15.122C20.7924 12.8136 18.858 11 16.5 11Z" clip-rule="evenodd" fill-rule="evenodd"></path> </g></svg>
+</div>
+<div class="text">
+   <span>Sube una Imagen .PNG</span>
+   </div>
+   <input type="file" id="file" onChange={e => 
+    setImagePng(e.target.files[0])
+    } />
+</label>
+        </div>
+        <div className="mb-3">
+        <label class="custum-file-upload" for="file2">
+<div class="icon">
+<svg xmlns="http://www.w3.org/2000/svg" fill="" viewBox="0 0 24 24"><g stroke-width="0" id="SVGRepo_bgCarrier"></g><g stroke-linejoin="round" stroke-linecap="round" id="SVGRepo_tracerCarrier"></g><g id="SVGRepo_iconCarrier"> <path fill="" d="M10 1C9.73478 1 9.48043 1.10536 9.29289 1.29289L3.29289 7.29289C3.10536 7.48043 3 7.73478 3 8V20C3 21.6569 4.34315 23 6 23H7C7.55228 23 8 22.5523 8 22C8 21.4477 7.55228 21 7 21H6C5.44772 21 5 20.5523 5 20V9H10C10.5523 9 11 8.55228 11 8V3H18C18.5523 3 19 3.44772 19 4V9C19 9.55228 19.4477 10 20 10C20.5523 10 21 9.55228 21 9V4C21 2.34315 19.6569 1 18 1H10ZM9 7H6.41421L9 4.41421V7ZM14 15.5C14 14.1193 15.1193 13 16.5 13C17.8807 13 19 14.1193 19 15.5V16V17H20C21.1046 17 22 17.8954 22 19C22 20.1046 21.1046 21 20 21H13C11.8954 21 11 20.1046 11 19C11 17.8954 11.8954 17 13 17H14V16V15.5ZM16.5 11C14.142 11 12.2076 12.8136 12.0156 15.122C10.2825 15.5606 9 17.1305 9 19C9 21.2091 10.7909 23 13 23H20C22.2091 23 24 21.2091 24 19C24 17.1305 22.7175 15.5606 20.9844 15.122C20.7924 12.8136 18.858 11 16.5 11Z" clip-rule="evenodd" fill-rule="evenodd"></path> </g></svg>
+</div>
+<div class="text">
+   <span>Sube Varias imagenes del vehiculo</span>
+   </div>
+   <input type="file" id="file2" onChange={e => setImageJpg(e.target.files[0])}/>
+</label>
+{/* <img src={image} alt="" /> */}
+        </div> 
+
+        {/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */}
+
+    {/* <div className="form-container sign-in-container mobile-login">
+            <form action="#">
+                <h1>Sign in</h1>
+                {/* <div className="social-container">
+                  <a className="social" onClick={handleOnClickGoogle}><GoogleIcon /></a>
+                  {/* <a className="social" onClick={handleOnClickEmail}><EmailOutlinedIcon/></a> */}
+                    {/* <a href="#" className="social"><LinkedInIcon/></a> */}
+                {/* </div>
+                <span>or use your account</span>
+                <input type="email" placeholder="Email" onChange={e=>setEmail(e.target.value)} />
+                <input type="password" placeholder="Password" onChange={e=>setPassword(e.target.value)}/>
+                <a href="/error404">Forgot your password?</a>
+                <button onClick={handleOnClickEmail}>Sign In</button>
+            </form>
+        </div>*/}
+        {/* </div>  */}
+
+    {/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */}
+    {/* <div className="container margin-auto bg-dark">
+    <div className="form-container sign-in-container mobile-login">
+            <form action="#">
+                <h1>Sign in</h1>
+                {/* <div className="social-container">
+                  <a className="social" onClick={handleOnClickGoogle}><GoogleIcon /></a>
+                  {/* <a className="social" onClick={handleOnClickEmail}><EmailOutlinedIcon/></a> */}
+                    {/* <a href="#" className="social"><LinkedInIcon/></a> */}
+                 {/* </div> 
+                <span>or use your account</span>
+                <input type="email" placeholder="Email" onChange={e=>setEmail(e.target.value)} />
+                <input type="password" placeholder="Password" onChange={e=>setPassword(e.target.value)}/>
+                <a href="/error404">Forgot your password?</a>
+                <button onClick={handleOnClickEmail}>Sign In</button>
+            </form>
+        </div>
+      </div>*/}

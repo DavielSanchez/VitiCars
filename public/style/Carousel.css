@@ -1,0 +1,36 @@
+.carousel {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    margin-top: 30px;
+}
+
+#imagen {
+    width: 100%;
+    height: 650px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.controles {
+    text-align: center;
+    padding-top: 10px;
+}
+
+#reload {
+    margin-top: 1rem;
+    display: inline-block;
+    font-size: 1.7rem;
+    color: #fff;
+    background: var(--black);
+    border-radius: .5rem;
+    cursor: pointer;
+    padding: .8rem 3rem;
+}
+
+#reload:hover {
+    background: var(--red);
+    letter-spacing: .1rem;
+    color: #fff;
+}

@@ -1,0 +1,51 @@
+@font-face {
+    font-family: "Light";
+    src: local("NunitoSans"), url("./fonts/NunitoSans-VariableFont_YTLC\,opsz\,wdth\,wght.ttf") format("truetype");
+}
+
+.container {
+    font-family: "Light";
+}
+
+.home .home-slider .slide {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding-top: 4rem;
+}
+
+.sub-heading {
+    text-align: center;
+    color: var(--red);
+    font-size: 2rem;
+    padding-top: 1rem;
+}
+
+.heading {
+    text-align: center;
+    color: var(--black);
+    font-size: 3rem;
+    padding-bottom: 2rem;
+    text-transform: uppercase;
+}
+
+.box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
+    gap: 1.5rem;
+    margin-right: 2.5%;
+    margin-left: 2.5%;
+    margin-bottom: 3%;
+}
+
+.anuncios {
+    background-color: #EEEEEE;
+    padding: 1%;
+}
+
+.footer {
+    background-color: #EEEEEE;
+    margin-top: 3%;
+    margin-bottom: 0;
+}

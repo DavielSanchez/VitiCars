@@ -1,0 +1,31 @@
+#cont-marcas {
+    float: left;
+    width: 100%;
+    height: auto;
+    padding: 2% 0;
+    background-image: url(../assets/fondo16.png);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    margin-bottom: 3%;
+    padding-left: 100px;
+}
+
+.wrapper {
+    width: 100%;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    width: 5%;
+    float: left;
+    text-align: center;
+    padding: 10px;
+}
+
+
+/* .marca {
+    width: 15%;
+    float: left;
+    text-align: center;
+    padding: 10px;
+} */
