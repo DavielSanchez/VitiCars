@@ -18,10 +18,10 @@ import { db } from '../../FireBaseConfig/Firebase';
 function Nav() {
 
   const auth = getAuth();
-const user = auth.currentUser;
+  const user = auth.currentUser;
 
   const [users, setUsers] = useState();
-  const [role, setRole] = useState('user');
+  const [role, setRole] = useState('guest');
   // eslint-disable-next-line no-unused-vars
   const [userName, setUserName] = useState(`user ${Math.random()}`);
 
@@ -35,6 +35,8 @@ const user = auth.currentUser;
   async function getRole(uid){
     const docuRef = doc(db, 'Users', uid)
     const docuCifrada = await getDoc(docuRef)
+    console.log(docuCifrada);
+    console.log(user)
     const docu = docuCifrada.data().role
     return docu
   }

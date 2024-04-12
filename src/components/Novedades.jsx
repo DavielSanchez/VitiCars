@@ -29,7 +29,7 @@ function Novedades() {
     <>
             {cars.map(carro => (
           <div className="container-novedad" key={cars.id}>
-            <div className="content">
+            <div className="content col-xl-6 col-md-6 col-sm-12">
                 <span className='tag-novedad'>Novedad</span>
                 <h3 className="car-name">{carro.carBrand} {carro.carModel}</h3>
                 <p className="description">{carro.carDescription}</p>
@@ -61,7 +61,7 @@ function Novedades() {
                   Ver más
                 </Link>
             </div>
-            <div className="container-image">
+            <div className="container-image col-xl-6 col-md-6 col-sm-12">
                 <img className="image" src={carro.carImagePng} alt=""/>
             </div>
           </div>

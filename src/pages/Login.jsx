@@ -119,7 +119,7 @@ signInWithEmailAndPassword(auth, Email, Password)
     <title>D` VitiCars | Login</title>
     <div className="login_View">
     <div className="login_Container" id="container" ref={login_Container}>
-        <div className="form-container sign-up-container showOnly">
+        <div className="form-container sign-up-container showOnly col-sm-12">
             <form onSubmit={register}>
                 <h1>Create Account</h1>
                 <div className="social-container">
@@ -134,7 +134,7 @@ signInWithEmailAndPassword(auth, Email, Password)
                 <button type='submit'>Sign Up</button>
             </form>
         </div>
-        <div className="form-container sign-in-container">
+        <div className="form-container sign-in-container col-sm-12">
             <form onSubmit={handleOnClickEmail}>
                 <h1>Sign in</h1>
                 {/* <div className="social-container">

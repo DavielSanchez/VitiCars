@@ -55,7 +55,7 @@ function NavLoggedInUser(user) {
             <a className={({isActive})=> (isActive ? 'Active' : null)} href="#vende">Vende</a>
             <a className={({isActive})=> (isActive ? 'Active' : null)} href="#contact">Contáctanos</a>  
             <div className="dropstart">
-                <Avatar className="Avatar dropdown" data-bs-toggle="dropdown"
+                <Avatar className="Avatar dropdown ms-2" data-bs-toggle="dropdown"
                     aria-expanded="false" alt={user.name} src={user.photo} />
                 <ul className="dropdown-menu">
                     <li><h3 className="dropdown-item">{user.name}</h3></li>
@@ -88,7 +88,7 @@ function NavLoggedInUser(user) {
             <a className={({isActive})=> (isActive ? 'Active' : null)} href="#vende">Vende</a>
             <a className={({isActive})=> (isActive ? 'Active' : null)} href="#footer">Contáctanos</a>
             <div className="dropstart">
-                <Avatar className="Avatar dropdown" data-bs-toggle="dropdown"
+                <Avatar className="Avatar dropdown ms-4" data-bs-toggle="dropdown"
                     aria-expanded="false" alt={user.name} src={user.photo} />
                 <ul className="dropdown-menu">
                     {/* <li><h3 className="dropdown-item">{user.name}</h3></li><div className="name-divisor-container"><hr className="name-divisor" /></div> */}
